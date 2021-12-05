@@ -3,7 +3,6 @@ import Notice from './components/Notice'
 import {Route, Routes} from 'react-router-dom'
 import Header from './components/Header';
 import CreateNotice from './components/CreateNotice';
-import './index.css';
 
 function App() {
   return (

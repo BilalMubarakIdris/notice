@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import"./createNotice.css"
+// import"./createNotice.css"
 import { Link } from "react-router-dom";
 import axios from "axios";
 function CreateNotice(){
@@ -34,7 +34,7 @@ function CreateNotice(){
         axios.post(url,{
             recipient: input.recipient,
             description: input.description,
-            date: input.date
+            date: parseInt(input.date)
         })
         .then(res => {
             console.log(res.data)
@@ -44,18 +44,18 @@ function CreateNotice(){
     }
     
     return(
-        <div className="wrapper-container">
+        <div className="p-8 w-full flex justify-center flex-col items-center">
             <form method="post" onSubmit={handleSubmit}>
-                <div className="option-container">
-                    <select name = "select_classes" className="select">
+                <div className="flex space-x-12 mb-6 m-2">
+                    <select name = "select_classes" className="px-20 text-lg">
                         <option>Select classes</option>
                         <option value = "class1">class 1</option>
                         <option value = "class2">class 2</option>
                         <option value = "class3">class 3</option>
                         <option value = "class4">class 4</option>
                     </select>
-                    <p className="or">Or</p>
-                    <select name = "select_department" className="select">
+                    <p className="text-2xl">Or</p>
+                    <select name = "select_department" className="px-20 text-lg">
                         <option>Select Department</option>
                         <option value = "bcs">BCA</option>
                         <option value = "nursen">Nursen</option>
@@ -63,11 +63,11 @@ function CreateNotice(){
                         <option value = "phamarcy">Pharmacy</option>
                     </select>
                 </div>
-                <div className="textarea-container">
-                    <textarea className="textarea" id="recipient" name="recipient"   value = {input.recipient} onChange = {(e) => handleChange(e)} placeholder="Recipients"></textarea>
-                    <textarea className="textarea" id="description" name="description"  value = {input.description} onChange = {(e) => handleChange(e)} placeholder="Enter Description"></textarea>
+                <div className="flex">
+                    <textarea className="p-3 w-96 h-40 m-1" id="recipient" name="recipient"   value = {input.recipient} onChange = {(e) => handleChange(e)} placeholder="Recipients"></textarea>
+                    <textarea className="p-3 w-96 h-40 m-1" id="description" name="description"  value = {input.description} onChange = {(e) => handleChange(e)} placeholder="Enter Description"></textarea>
                 </div>
-                <div className="attach_and_date_container">
+                <div className="flex space-x-4 my-6 ">
                     <div className="attach">
                         <span className="attach">Attach a Link</span>
                        <input name="file" type="file" onChange={handleFile}/>
@@ -79,11 +79,11 @@ function CreateNotice(){
                         
                     </div>
                 </div>
-                <button className="btn btn-submit">Crate Notice</button>
+                <button className="py-2 px-20 text-lg bg-gray-600 text-white mb-7">Crate Notice</button>
             </form>
-            <div className="btn_container">
-                <Link className="back" to="/notice">Back</Link>
-                <button className="btn btn-send">Send Individually ID</button>
+            <div className="flex justify-around w-full bt-7">
+                <Link className="py-2 px-20 text-2xl bg-gray-600 text-white" to="/notice">Back</Link>
+                <button className="py-2 px-20 text-2xl bg-gray-600 text-white">Send Individually ID</button>
             </div>
         </div>
     )
