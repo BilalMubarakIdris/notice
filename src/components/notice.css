@@ -1,0 +1,22 @@
+.notice_container{
+    width: 100%;
+    padding: 1.5em;
+}
+
+p{
+    font-size: 1.5em;
+}
+.notice{
+    border: 1px solid #7f8281;
+    padding: 2em;
+    margin-bottom: 3.5em;
+}
+
+.notice_container a{
+    font-size: 1.3em;
+    text-decoration: none;
+    color: #f2f2f2;
+    padding: 0.5em 5em;
+    background-color: #7f8281;
+}
+
